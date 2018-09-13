@@ -11,7 +11,7 @@ El plazo de entrega es de 5 días, desde que se recibe la prueba. Se debe notifi
 ## Requisitos
 La aplicación debe contar con los siguientes elementos/condiciones:
 * Se deben obtener las imágenes desde [este endpoint](https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d81a384144084d2638d8ee136cc0398a&tags=lady&format=json&nojsoncallback=1&api_sig=37cf24e12588b9b312e1ef4a5a14a03c) ([tip](https://www.flickr.com/services/api/misc.urls.html))
-* La página debe tener un grid que utilice la pantalla completa (sin bordes ni espacio entre imágenes) y debe ser responsive
+* La página debe tener un grid que utilice la pantalla completa y debe ser responsive
 * La página debe tener [scroll infinito](https://en.wiktionary.org/wiki/infinite_scroll)
 * Al hacer click en una imagen, se debe deplegar un tooltip con la siguiente información:
     * Título
@@ -22,6 +22,9 @@ La aplicación debe contar con los siguientes elementos/condiciones:
     * Usuario que subió la imagen
 * El proyecto debe compilarse con [Webpack](https://webpack.js.org/)
 
+## Bonus
+
+* Layout masonry
 
 ## En qué nos fijaremos
 
