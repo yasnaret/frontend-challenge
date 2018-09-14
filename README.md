@@ -31,4 +31,4 @@ La aplicación debe contar con los siguientes elementos/condiciones:
 * Correcto uso de GIT
 * Correcto uso de React
 * Orden del código (clean code)
-* Diseño responseive
+* Diseño responsive
