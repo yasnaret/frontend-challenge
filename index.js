@@ -1,7 +1,8 @@
 import React from 'react';
-import ReactDom from 'react-dom';
+import { render } from 'react-dom';
+import Images from './src/components/Images'
 
 const app =document.getElementById('app');
-const holamundo=<h1>Hola Mundo!!!</h1>
 
-ReactDom.render(holamundo,app);
+
+render(<Images/>,app);
