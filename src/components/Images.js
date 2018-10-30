@@ -20,7 +20,7 @@ export default class Images extends Component {
 
   buildImages() {
     //from https://www.flickr.com/services/api/explore/flickr.photos.search
-    fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=967c78a908c3f74879ddf240240f35fa&tags=woman&sort=+relevance&extras=description+%2Ctags%2Cdate_upload%2C+date_taken%2C+owner_name&per_page=40&page=${this.state.page}&format=json&nojsoncallback=1`)
+    fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=967c78a908c3f74879ddf240240f35fa&tags=woman&sort=+relevance&extras=description+%2Ctags%2Cdate_upload%2C+date_taken%2C+owner_name&per_page=40&page=${this.state.addPage}&format=json&nojsoncallback=1`)
       .then(res => res.json())
       .then(j => {
         let infoState=this.state.pictures
@@ -28,8 +28,8 @@ export default class Images extends Component {
         infoState.push(pic);
         });
         this.setState({ 
-          addPage: this.state.addPage + 1, 
-          addImgs: true });
+          addPage:(this.state.addPage + 1), 
+          hasMoreItems: true,});
       });
   }
 
@@ -48,7 +48,7 @@ export default class Images extends Component {
 					<Masonry brakePoints={this.props.brakePoints}>
 						{this.state.pictures.map((pic, id) => {
 							return (
-                  <div className="tile">
+                  <div className="tile" key ={id}>
                     <img alt="lady"
                      src={`https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`}
                      key={pic.id}
