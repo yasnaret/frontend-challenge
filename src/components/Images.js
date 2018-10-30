@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import InfiniteScroll from 'react-infinite-scroller';
-import ReactTooltip from 'react-tooltip'
+import ReactTooltip from 'react-tooltip';
 import Masonry from './Masonry'
 
 
@@ -41,20 +41,39 @@ export default class Images extends Component {
 					<p>ReactJS Responsive| Masonry Grid | Webpack | API Flickr</p>
 
           <InfiniteScroll
+          //CONFIGURACIONES DE SCROLL
             pageStart={0}
             loadMore={this.buildImages.bind(this)}
             hasMore={this.state.hasMoreItems}
-            loader={<div className="loader">Loading wait...</div>}>
+            loader={<div className="loader">Loading wait...</div>}
+          >
 					<Masonry brakePoints={this.props.brakePoints}>
+          
 						{this.state.pictures.map((pic, id) => {
 							return (
                   <div className="tile" key ={id}>
                     <img alt="lady"
                      src={`https://farm${pic.farm}.staticflickr.com/${pic.server}/${pic.id}_${pic.secret}.jpg`}
                      key={pic.id}
-                     data-for='soclose' data-multiline={true} data-tip={`TITLE: ${pic.title},  TAGS: ${pic.tags}`}
-                     data-event='click'/>
-		              <ReactTooltip/>
+                     //Configuración para Tooltips
+                     data-event='click'
+                     data-for='imgFromFlickr'
+                     data-multiline={true} 
+                     data-tip={`Titulo: ${pic.title},
+                     Descripción:${pic.description._content},
+                     Fecha-Post:${pic.datetaken},
+                     Fecha-Act:${pic.dateupload},
+                     Tags:${pic.tags},
+                     Autor:${pic.ownername}`}/>
+                     <ReactTooltip 
+                     className='extraClass'
+                     id='imgFromFlickr'
+                     getContent={(dataTip) =>`${dataTip}`}
+                     place="bottom"
+                     type="info" 
+                     effect="solid"
+                     />
+                    
                   </div>
 							) 
 						})}
