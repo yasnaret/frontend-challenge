@@ -1,73 +1,32 @@
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-
-
-module.exports = (env) => {
-  const plugins = [
-    new ExtractTextPlugin("css/[name].css")
-  ]
-
-  if (env.NODE_ENV === 'production') {
-    plugins.push(
-      new CleanWebpackPlugin(['dist'], {root: __dirname})
-    )
-  }
-
-  return {
-
-    entry: {
-      "frontend-challenge": path.resolve(__dirname, 'index.js'),
-    },
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const htmlWebpackPlugin = new HtmlWebpackPlugin({
+    template: path.join(__dirname, "demo/src/index.html"),
+    filename: "./index.html"
+});
+module.exports = {
+    entry: path.join(__dirname, "demo/src/index.js"),
     output: {
-      path: path.resolve(__dirname, 'dist'),
-      filename: 'js/[name].js',
-      publicPath: path.resolve(__dirname, 'dist')+"/",
-      chunkFilename: 'js/[id].[chunkhash].js',
+      path: path.join(__dirname, "examples/dist"),
+      filename: "bundle.js"},
+    module: {
+        rules: [
+            {
+                test: /\.(js|jsx)$/,
+                use: "babel-loader",
+                exclude: /node_modules/
+            },
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
+            }
+        ]
+    },
+    plugins: [htmlWebpackPlugin],
+    resolve: {
+        extensions: [".js", ".jsx"]
     },
     devServer: {
-      port: 9000,
-    },
-    module: {
-      rules: [
-        {
-          // test: que tipo de archivo quiero reconocer,
-          // use: que loader se va a encargar del archivo
-          test: /\.(js|jsx)$/,
-          exclude: /(node_modules)/,
-          use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['es2015', 'react', 'stage-2'],
-            }
-          },
-        },
-        {
-          test: /\.css$/,
-          use: ExtractTextPlugin.extract({
-            use: [
-              {
-                loader: 'css-loader',
-                options: {
-                  minimize: true,
-                }
-              }
-            ]
-          })
-        },
-        {
-          test: /\.(jpg|png|gif|svg)$/,
-          use: {
-            loader: 'url-loader',
-            options: {
-              limit: 10000,
-              fallback: 'file-loader',
-              name: 'images/[name].[hash].[ext]',
-            }
-          }
-        },
-      ]
-    },
-    plugins
-  }
-}
+        port: 3001
+    }
+};
