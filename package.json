@@ -1,6 +1,6 @@
 {
   "name": "frontend-challenge",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Front-end Challenge to Tech-k. Build a react App to show images in a grid to show it in a full screen",
   "main": "dist/index.js",
   "scripts": {
