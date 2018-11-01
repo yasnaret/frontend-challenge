@@ -4,31 +4,24 @@
 Utilizando la [API de Flicker](https://www.flickr.com/services/api/), contruir una aplicación en [React](https://reactjs.org/) que sea capaz mostrar las imágenes en un grid que use la pantalla completa.
 
 ## Instrucciones
-Se debe crear un Fork de este repositorio y entregar los resultados por medio de un pull request.
 
-El plazo de entrega es de 5 días, desde que se recibe la prueba. Se debe notificar por correo la finalización y entrega de esta.
 
-## Requisitos
-La aplicación debe contar con los siguientes elementos/condiciones:
-* Se deben obtener las imágenes desde [este endpoint](https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d81a384144084d2638d8ee136cc0398a&tags=lady&format=json&nojsoncallback=1&api_sig=37cf24e12588b9b312e1ef4a5a14a03c) ([tip](https://www.flickr.com/services/api/misc.urls.html))
-* La página debe tener un grid que utilice la pantalla completa y debe ser responsive
-* La página debe tener [scroll infinito](https://en.wiktionary.org/wiki/infinite_scroll)
-* Al hacer click en una imagen, se debe deplegar un tooltip con la siguiente información:
-    * Título
-    * Descipción
-    * Fecha de post
-    * Fecha de actualización
-    * Tags
-    * Usuario que subió la imagen
-* El proyecto debe compilarse con [Webpack](https://webpack.js.org/)
+Clona este repositorio a tu local 
+`git clone https://github.com/yasnaret/frontend-challenge.git `
 
-## Bonus
+Inicializa sus Módulos
+`npm install`
 
-* Layout masonry
+Modo Desarrollo 
+`npm start ` y luego dirigete a <http://localhost:3001/>
 
-## En qué nos fijaremos
+## Screen Deploy 
 
-* Correcto uso de GIT
-* Correcto uso de React
-* Orden del código (clean code)
-* Diseño responsive
+![yasnaret github io_frontend-challenge_](https://user-images.githubusercontent.com/42657393/47785834-a7c48e00-dce8-11e8-958b-0a8d60fe0109.png)
+
+
+![yasnaret github io_frontend-challenge_ 1](https://user-images.githubusercontent.com/42657393/47786236-e73faa00-dce9-11e8-96d1-f8e48c84a9a9.png)
+
+## Deploy 
+
+<https://yasnaret.github.io/frontend-challenge/>

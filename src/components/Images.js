@@ -20,7 +20,7 @@ export default class Images extends Component {
 
   buildImages() {
     //from https://www.flickr.com/services/api/explore/flickr.photos.search
-    fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=3fd3ce4146b0b9a22cc25de46f604053&tags=woman&sort=+relevance&extras=description+%2Ctags%2Cdate_upload%2C+date_taken%2C+owner_name&per_page=20&page=${this.state.addPage}&format=json&nojsoncallback=1`)
+    fetch(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=83a51b990a9c0df9960f7eed8c19dda5&tags=woman&extras=description,date_upload,tags,date_taken,last_update,owner_name&per_page=20&page=${this.state.addPage}&format=json&nojsoncallback=1`)
       .then(res => res.json())
       .then(j => {
         let infoState=this.state.pictures
